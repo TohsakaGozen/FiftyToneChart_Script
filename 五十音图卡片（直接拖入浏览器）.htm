@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Tohsakaの五十音练习</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<script type="text/javascript">
+		var isIOS = navigator.userAgent.match(/iphone|ipod|ipad/gi);
+		(function (doc, win) {
+			var docEl = doc.documentElement, //Android不支持修改initial-scale
+				dpr = isIOS ? Math.min(win.devicePixelRatio, 3) : 1,
+				scale = 1 / dpr,
+				resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize';
+			docEl.dataset.dpr = dpr;
+			var metaEl = doc.createElement('meta');
+			metaEl.name = 'viewport';
+			metaEl.content = 'initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ", user-scalable=no";
+			docEl.firstElementChild.appendChild(metaEl);
+			var recalc = function () {
+				var width = docEl.clientWidth;
+				docEl.style.fontSize = 100 * (width / 640) + 'px';
+			};
+			recalc();
+			win.addEventListener(resizeEvt, recalc, false);
+		})(document, window);
+	</script>
+	<style type="text/css">
+		html,
+		body,
+		p {
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			font-family: 'Microsoft YaHei';
+		}
+
+		body {
+			background-color: #F4F9F8;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.content {
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+		}
+
+		.view {
+			position: relative;
+			margin: 1.5%;
+			width: 96%;
+			height: 1.9rem;
+			-webkit-transform: translateZ(0);
+			transform: translateZ(0);
+			-webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+			background-color: #E6EAE7;
+			color: #33AC8E;
+			font-family: "ヒラギノ角ゴ Pro W3", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+		}
+
+		.view-anthor,
+		.view-vowel {
+			position: absolute;
+		}
+
+		.view-main {
+			width: 100%;
+			display: inline;
+			margin-left: 40%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			font-size: 1rem;
+		}
+
+		.view-anthor,
+		.view-vowel {
+			width: 1.92rem;
+			height: 1.92rem;
+			line-height: 1.8rem;
+			text-align: center;
+			font-size: 0.5rem;
+		}
+
+		.view-anthor {
+			left: 0;
+			top: 30%;
+		}
+
+		.view-vowel {
+			right: 0;
+			top: 30%;
+		}
+
+		.btn {
+			border: 0;
+			transition: all .2s;
+			cursor: pointer;
+			border-radius: 15px;
+		}
+
+		.btn-change {
+			display: block;
+			margin: 1.5%;
+			width: 80%;
+			height: 0.8rem;
+			margin-right: auto;
+			margin-left: auto;
+			padding: 0;
+			font: bold .4rem 'arial';
+			color: #fff;
+			border-radius: 3px;
+			background: #33AC8E;
+		}
+
+		.footer {
+			padding-top: .96rem;
+			text-align: center;
+			font-size: .28rem;
+			color: #b8c4cc;
+		}
+
+		.svg {
+			position: absolute;
+			top: 74%;
+			z-index: 9999;
+			right: 20%;
+			transition: all .5s;
+			cursor: pointer;
+			border-radius: 15px;
+		}
+
+		.btn:hover {
+			scale: 1.02;
+			background-color: #35e3c0;
+
+		}
+
+		.svg:hover {
+			scale: 1.1;
+			background-color: #F4F9F8;
+
+		}
+	</style>
+</head>
+
+<body scroll="no">
+	<div class="content">
+		<div class="view">
+			<div class="view-main"></div>
+			<audio class="audio" autoplay src="50yin/learn50/a.mp3"></audio>
+
+			<div class="view-anthor hide"></div>
+			<div class="view-vowel hide"></div>
+		</div>
+		<button class="btn btn-change">Next</button>
+		<?xml version="1.0" encoding="UTF-8"?><svg class="svg" width="100" height="100" viewBox="0 0 48 48" fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M24 6V42C17 42 11.7985 32.8391 11.7985 32.8391H6C4.89543 32.8391 4 31.9437 4 30.8391V17.0108C4 15.9062 4.89543 15.0108 6 15.0108H11.7985C11.7985 15.0108 17 6 24 6Z"
+				fill="none" stroke="#333" stroke-width="2" stroke-linejoin="round" />
+			<path
+				d="M32 15L32 15C32.6232 15.5565 33.1881 16.1797 33.6841 16.8588C35.1387 18.8504 36 21.3223 36 24C36 26.6545 35.1535 29.1067 33.7218 31.0893C33.2168 31.7885 32.6391 32.4293 32 33"
+				stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			<path d="M34.2359 41.1857C40.0836 37.6953 44 31.305 44 24C44 16.8085 40.2043 10.5035 34.507 6.97906"
+				stroke="#333" stroke-width="2" stroke-linecap="round" />
+		</svg>
+	</div>
+	<script type="text/javascript">
+		(function () {
+			var flag = false;
+			var page = {
+				init: function () {
+					this.hiragana = ["あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ", "さ", "し", "す", "せ", "そ", "た", "ち", "つ", "て", "と", "な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ", "ま", "み", "む", "め", "も", "や", "ゆ", "よ", "ら", "り", "る", "れ", "ろ", "わ", "を", "ん", "が", "ぎ", "ぐ", "げ", "ご", "ざ", "じ", "ず", "ぜ", "ぞ", "だ", "ぢ", "づ", "で", "ど", "ば", "び", "ぶ", "べ", "ぼ", "ぱ", "ぴ", "ぷ", "ぺ", "ぽ", "きゃ", "きゅ", "きょ", "しゃ", "しゅ", "しょ", "ちゃ", "ちゅ", "ちょ", "にゃ", "にゅ", "にょ", "ひゃ", "ひゅ", "ひょ", "みゃ", "みゅ", "みょ", "りゃ", "りゅ", "りょ", "ぎゃ", "ぎゅ", "ぎょ", "じゃ", "じゅ", "じょ", "びゃ", "びゅ", "びょ", "ぴゃ", "ぴゅ", "ぴょ"];
+					this.katakana = ["ア", "イ", "ウ", "エ", "オ", "カ", "キ", "ク", "ケ", "コ", "サ", "シ", "ス", "セ", "ソ", "タ", "チ", "ツ", "テ", "ト", "ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ", "マ", "ミ", "ム", "メ", "モ", "ヤ", "ユ", "ヨ", "ラ", "リ", "ル", "レ", "ロ", "ワ", "ヲ", "ン", "ガ", "ギ", "グ", "ゲ", "ゴ", "ザ", "ジ", "ズ", "ゼ", "ゾ", "ダ", "ヂ", "ヅ", "デ", "ド", "バ", "ビ", "ブ", "ベ", "ボ", "パ", "ピ", "プ", "ぺ", "ポ", "キャ", "キュ", "キョ", "シャ", "シュ", "ショ", "チャ", "チュ", "チョ", "ニャ", "ニュ", "ニョ", "ヒャ", "ヒュ", "ヒョ", "ミャ", "ミュ", "ミョ", "リャ", "リュ", "リョ", "ギャ", "ギュ", "ギョ", "ジャ", "ジュ", "ジョ", "ビャ", "ビュ", "ビョ", "ピャ", "ピュ", "ピョ"];
+					this.vowel = ['a', 'i', 'u', 'e', 'o', 'ka', 'ki', 'ku', 'ke', 'ko', 'sa', 'shi', 'su', 'se', 'so', 'ta', 'chi', 'tsu', 'te', 'to', 'na', 'ni', 'nu', 'ne', 'no', 'ha', 'hi', 'fu', 'he', 'ho', 'ma', 'mi', 'mu', 'me', 'mo', 'ya', 'yu', 'yo', 'ra', 'ri', 'ru', 're', 'ro', 'wa', 'o', 'n', "ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo", "da", "ji", "zu", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po", "kya", "kyu", "kyo", "sha", "shu", "sho", "cha", "chu", "cho", "nya", "nyu", "nyo", "hya", "hyu", "hyo", "mya", "myu", "myo", "rya", "ryu", "ryo", "gya", "gyu", "gyo", "ja", "ju", "jo", "bya", "byu", "byo", "pya", "pyu", "pyo"];
+					this.now = -1;
+
+					this.oView = $('.view');
+					this.oView_main = $('.view-main');
+					this.oView_anthor = $('.view-anthor');
+					this.oVowel = $('.view-vowel');
+					this.oBtn_change = $('.btn-change');
+					this.audio = $('.audio');
+					this.rePlay = $('.svg');
+					this.flag = ''
+
+					this.initEvent();
+					this.renderView();
+				},
+				initEvent: function () {
+					this.oView.addEventListener('click', this.showMore.bind(this), false);
+					this.oBtn_change.addEventListener('click', this.renderView.bind(this), false)
+					this.rePlay.addEventListener('click', this.replay.bind(this), false)
+					console.log(this.audio.src)
+				},
+				randomIndex: function () {
+					var nRandom = Math.floor(Math.random() * this.hiragana.length);
+					if (nRandom != this.now) {
+						this.now = nRandom;
+						return nRandom + '';
+					} else {
+						return this.randomIndex();
+					}
+				},
+				renderView: function () {
+					var index = this.randomIndex();
+					// 2017.3.21
+					// 封装一个数组
+					var selectarry = ['hiragana', 'katakana', 'vowel'];
+					// 0-3之间随机一个数
+					var selectnum = Math.floor(Math.random() * 3);
+					// 第一个框 数组中选择刚刚随机生成的值
+					var key = selectarry[selectnum];
+					// 在数组中删除刚刚选择过的 剩下两个
+					selectarry.splice(selectnum, 1);
+					// 0-2随机生成一个数
+					var selectnumsecond = Math.floor(Math.random() * 2);
+					// 第二个框显示 数组中选择刚刚随机生成的值
+					var anthor = selectarry[selectnumsecond]
+					// 在数组中删除刚刚选择过的 剩下一个
+					selectarry.splice(selectnumsecond, 1);
+					// 最后一个框 显示数组中最后一个值（此时数组只有一个值）
+					var last = selectarry[0];
+
+					/*var key = Math.floor(Math.random() * 2) == 0 ? 'hiragana' : 'katakana';
+					var anthor = key == "hiragana" ? 'katakana' : 'hiragana';*/
+					this.hideMore();
+					this.oView_main.innerHTML = this[key][index];
+					this.oView_anthor.innerHTML = this[anthor][index];
+					this.oVowel.innerHTML = this[last][index];
+					console.log(index)
+					console.log(this.vowel[index])
+					this.audio.src = `50yin/learn50/${this.vowel[index]}.mp3`
+					console.log(this.audio.src)
+				},
+				showMore: function (event) {
+
+
+					if (this.flag == false) {
+						this.oView_anthor.classList.remove('hide');
+						this.oVowel.classList.remove('hide');
+						this.audio.play().then(() => { }, (err) => { alert("抱歉啦，该音频未找到") })
+						this.flag = true;
+					} else if (this.flag == true) {
+						this.oView_anthor.classList.add('hide');
+						this.oVowel.classList.add('hide');
+						this.flag = false;
+
+					}
+				},
+				replay() {
+					this.audio.play().then(() => { }, (err) => { alert("抱歉啦，该音频未找到") })
+					this.oView_anthor.classList.remove('hide');
+					this.oVowel.classList.remove('hide');
+					this.flag = true;
+				},
+				hideMore: function () {
+					this.flag = false;
+					this.oView_anthor.classList.add('hide');
+					this.oVowel.classList.add('hide');
+				}
+			};
+
+			page.init();
+
+			function $(s) {
+				return document.querySelector(s);
+			}
+		})(window);
+	</script>
+</body>
+
+</html>
