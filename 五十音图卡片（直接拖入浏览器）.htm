@@ -26,6 +26,10 @@
 		})(document, window);
 	</script>
 	<style type="text/css">
+		* {
+			user-select: none;
+		}
+
 		html,
 		body,
 		p {
@@ -53,15 +57,26 @@
 
 		.view {
 			position: relative;
+			overflow: hidden;
 			margin: 1.5%;
 			width: 96%;
+			box-shadow: 0 0 10px silver;
 			height: 1.9rem;
 			-webkit-transform: translateZ(0);
 			transform: translateZ(0);
 			-webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+			transition: all .3s;
 			background-color: #E6EAE7;
-			color: #33AC8E;
+			color: #ff5599;
 			font-family: "ヒラギノ角ゴ Pro W3", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+		}
+
+		.view img {
+			position: absolute;
+			top: -160px;
+			left: -220px;
+			opacity: 0.3;
+			z-index: -999;
 		}
 
 		.view-anthor,
@@ -70,11 +85,12 @@
 		}
 
 		.view-main {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
 			width: 100%;
-			display: inline;
-			margin-left: 40%;
-			-webkit-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);
+			height: 80%;
 			font-size: 1rem;
 		}
 
@@ -97,15 +113,27 @@
 			top: 30%;
 		}
 
+		.view p {
+			text-align: center;
+			color: rgb(60, 56, 56);
+			font-size: 22px;
+			font-family: YOUYUAN;
+		}
+
 		.btn {
 			border: 0;
+
+			justify-content: center;
+			align-items: center;
 			transition: all .2s;
 			cursor: pointer;
-			border-radius: 15px;
+			border-radius: 25px;
 		}
 
 		.btn-change {
-			display: block;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			margin: 1.5%;
 			width: 80%;
 			height: 0.8rem;
@@ -114,8 +142,13 @@
 			padding: 0;
 			font: bold .4rem 'arial';
 			color: #fff;
-			border-radius: 3px;
-			background: #33AC8E;
+			border-radius: 30px;
+			background: rgb(255, 160, 176, 0.6);
+			box-shadow: 0 0 15px silver;
+		}
+
+		.btn p {
+			margin-right: 300px;
 		}
 
 		.footer {
@@ -126,18 +159,17 @@
 		}
 
 		.svg {
-			position: absolute;
-			top: 74%;
-			z-index: 9999;
-			right: 20%;
-			transition: all .5s;
-			cursor: pointer;
+			position: relative;
+			align-self: right;
+			transition: all .3s;
 			border-radius: 15px;
+			width: 100px;
+			z-index: 99999;
 		}
 
 		.btn:hover {
 			scale: 1.02;
-			background-color: #35e3c0;
+			background-color: #ffbbdc;
 
 		}
 
@@ -154,22 +186,26 @@
 		<div class="view">
 			<div class="view-main"></div>
 			<audio class="audio" autoplay src="50yin/learn50/a.mp3"></audio>
-
+			<img src="bg/1.jpg" alt="">
+			<p></p>
 			<div class="view-anthor hide"></div>
 			<div class="view-vowel hide"></div>
 		</div>
-		<button class="btn btn-change">Next</button>
-		<?xml version="1.0" encoding="UTF-8"?><svg class="svg" width="100" height="100" viewBox="0 0 48 48" fill="none"
-			xmlns="http://www.w3.org/2000/svg">
-			<path
-				d="M24 6V42C17 42 11.7985 32.8391 11.7985 32.8391H6C4.89543 32.8391 4 31.9437 4 30.8391V17.0108C4 15.9062 4.89543 15.0108 6 15.0108H11.7985C11.7985 15.0108 17 6 24 6Z"
-				fill="none" stroke="#333" stroke-width="2" stroke-linejoin="round" />
-			<path
-				d="M32 15L32 15C32.6232 15.5565 33.1881 16.1797 33.6841 16.8588C35.1387 18.8504 36 21.3223 36 24C36 26.6545 35.1535 29.1067 33.7218 31.0893C33.2168 31.7885 32.6391 32.4293 32 33"
-				stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-			<path d="M34.2359 41.1857C40.0836 37.6953 44 31.305 44 24C44 16.8085 40.2043 10.5035 34.507 6.97906"
-				stroke="#333" stroke-width="2" stroke-linecap="round" />
-		</svg>
+		<button class="btn btn-change">
+			<p>Next</p>
+			<?xml version="1.0" encoding="UTF-8"?><svg class="svg" width="40%" height="40%" viewBox="0 0 48 48"
+				fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M24 6V42C17 42 11.7985 32.8391 11.7985 32.8391H6C4.89543 32.8391 4 31.9437 4 30.8391V17.0108C4 15.9062 4.89543 15.0108 6 15.0108H11.7985C11.7985 15.0108 17 6 24 6Z"
+					fill="none" stroke="#333" stroke-width="2" stroke-linejoin="round" />
+				<path
+					d="M32 15L32 15C32.6232 15.5565 33.1881 16.1797 33.6841 16.8588C35.1387 18.8504 36 21.3223 36 24C36 26.6545 35.1535 29.1067 33.7218 31.0893C33.2168 31.7885 32.6391 32.4293 32 33"
+					stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				<path d="M34.2359 41.1857C40.0836 37.6953 44 31.305 44 24C44 16.8085 40.2043 10.5035 34.507 6.97906"
+					stroke="#333" stroke-width="2" stroke-linecap="round" />
+			</svg>
+		</button>
+
 	</div>
 	<script type="text/javascript">
 		(function () {
@@ -182,6 +218,7 @@
 					this.now = -1;
 
 					this.oView = $('.view');
+					this.introduce = $('.view p');
 					this.oView_main = $('.view-main');
 					this.oView_anthor = $('.view-anthor');
 					this.oVowel = $('.view-vowel');
@@ -194,6 +231,7 @@
 					this.renderView();
 				},
 				initEvent: function () {
+					this.introduce.innerHTML = "点击获取单词详情"
 					this.oView.addEventListener('click', this.showMore.bind(this), false);
 					this.oBtn_change.addEventListener('click', this.renderView.bind(this), false)
 					this.rePlay.addEventListener('click', this.replay.bind(this), false)
@@ -209,8 +247,8 @@
 					}
 				},
 				renderView: function () {
+					this.introduce.innerHTML = "点击获取单词详情"
 					var index = this.randomIndex();
-					// 2017.3.21
 					// 封装一个数组
 					var selectarry = ['hiragana', 'katakana', 'vowel'];
 					// 0-3之间随机一个数
@@ -240,14 +278,15 @@
 					console.log(this.audio.src)
 				},
 				showMore: function (event) {
-
-
 					if (this.flag == false) {
+						this.introduce.innerHTML = ""
 						this.oView_anthor.classList.remove('hide');
 						this.oVowel.classList.remove('hide');
+						window.event.cancelBubble = true
 						this.audio.play().then(() => { }, (err) => { alert("抱歉啦，该音频未找到") })
 						this.flag = true;
 					} else if (this.flag == true) {
+						this.introduce.innerHTML = "点击获取单词详情"
 						this.oView_anthor.classList.add('hide');
 						this.oVowel.classList.add('hide');
 						this.flag = false;
@@ -255,6 +294,8 @@
 					}
 				},
 				replay() {
+					this.introduce.innerHTML = ""
+					window.event.cancelBubble = true
 					this.audio.play().then(() => { }, (err) => { alert("抱歉啦，该音频未找到") })
 					this.oView_anthor.classList.remove('hide');
 					this.oVowel.classList.remove('hide');
